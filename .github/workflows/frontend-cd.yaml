@@ -60,7 +60,7 @@ jobs:
     needs: [lint, test]
     runs-on: ubuntu-latest
     env:
-      REACT_APP_MOVIE_API_URL: 'http://localhost:5000'
+      REACT_APP_MOVIE_API_URL: 'http://afd90aea87ab44a0fab8b10ba5d3c92c-677145359.us-east-1.elb.amazonaws.com'
       IMAGE_TAG: ${{ github.sha }}
     steps:
       - name: Checkout Code
