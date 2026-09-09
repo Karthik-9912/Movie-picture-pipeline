@@ -1,4 +1,4 @@
-name: Backend CI
+name: Backend Continuous Integration
 
 on:
   pull_request:
@@ -14,13 +14,12 @@ defaults:
 
 jobs:
   lint:
-    name: Lint Backend
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
@@ -30,20 +29,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pipenv install --dev
 
-      - name: Run Linter
+      - name: Run linter
         run: pipenv run lint
 
   test:
-    name: Test Backend
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
@@ -53,20 +51,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pipenv install --dev
 
-      - name: Run Tests
+      - name: Run tests
         run: pipenv run test
 
   build:
-    name: Build Backend Docker Image
     needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Docker Image
+      - name: Build Docker image
         run: |
           docker build -t mp-backend:latest .
