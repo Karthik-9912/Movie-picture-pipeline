@@ -22,11 +22,8 @@ This submission includes evidence for the complete CI/CD pipeline and the deploy
 4. Backend CD
    - Screenshot of a successful Backend CD GitHub Actions workflow run.
 
-5. Frontend Deployment
-   - Screenshot showing the deployed Frontend application through the AWS LoadBalancer hostname.
-   - The Frontend LoadBalancer hostname is visible in the browser address bar.
 
-6. Kubernetes Services
+5. Kubernetes Services
    - Both the Frontend and Backend services are configured as LoadBalancer services.
    - Both services show real AWS LoadBalancer hostnames in the External-IP column rather than <pending>.
 
